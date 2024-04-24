@@ -3,6 +3,11 @@ Horse simulator coursework for ECS414U (object-oriented programming).
 Started 19 Apr 2024.
 
 Part 1: text-based simulator
+To compile:
+`javac ./Horse.class`
+To run:
+`java Horse`
+
 Part 2: graphical-based simulator.
 
 author: Akbar Ali <23009739>
