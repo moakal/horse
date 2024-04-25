@@ -19,6 +19,7 @@ Ensure all files are downloaded and in the same folder.
 - Horse.java
 - Race.java
 - Track.java
+- HorseTrack.java
 
 Upon running, user will be greeted with an option to design a track, to successfully initiate a race:
 - create at least 1 track

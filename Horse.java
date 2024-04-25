@@ -5,72 +5,107 @@
  * @version 18 Apr 2024
  */
 
+import java.awt.*;
+
 public class Horse
 {
-    private char horseSymbol;
-    private String horseName;
+    private String name;
+    private Color color;
     private int distanceTravelled;
-    private boolean hasFallen;
-    private double horseConfidence;
-    
-    /* Constructor */
-    public Horse(char horseSymbol, String horseName, double horseConfidence)
+    private int wins;
+    private int races;
+    private double confidence;
+
+    public Horse(String name, Color color)
     {
-        this.horseSymbol = horseSymbol;
-        this.horseName = horseName;
-        this.horseConfidence = horseConfidence;
+        this.name = name;
+        this.color = color;
+        this.confidence = Math.random();
         this.distanceTravelled = 0;
-        this.hasFallen = false;
+        this.wins = 0;
+        this.races = 0;
     }
-    
-    public void fall()
+
+    public String getName()
     {
-        hasFallen = true;
+        return name;
     }
-    
-    public double getConfidence()
+
+    public Color getColor()
     {
-        return horseConfidence;
+        return color;
     }
-    
+
     public int getDistanceTravelled()
     {
         return distanceTravelled;
     }
-    
-    public String getName()
+
+    public int getWins()
     {
-        return horseName;
+        return wins;
     }
-    
-    public char getSymbol()
+
+    public int getRaces()
     {
-        return horseSymbol;
+        return races;
     }
-    
+
+    public double getConfidence()
+    {
+        return confidence;
+    }
+
+    public boolean hasFallen()
+    {
+        return confidence == 0;
+    }
+
+    public void move(int distance)
+    {
+        double speedMultiplier = 1 + confidence; // Confidence adds to the base speed
+        distanceTravelled += (int) (distance * speedMultiplier);
+
+        if (Math.random() < confidence) {
+            fall();
+        }
+    }
+
+    public void resetDistance()
+    {
+        distanceTravelled = 0;
+    }
+
+    public void addWin()
+    {
+        wins++;
+        confidence += 0.1;
+        if (confidence > 1) {
+            confidence = 1;
+        }
+    }
+
+    public void addRace()
+    {
+        races++;
+    }
+
+    public void moveForward(int distance)
+    {
+        move(distance);
+    }
+
+    public void fall()
+    {
+        confidence -= 0.1;
+        if (confidence < 0) {
+            confidence = 0;
+        }
+    }
+
     public void goBackToStart()
     {
         distanceTravelled = 0;
-        hasFallen = false;
     }
     
-    public boolean hasFallen()
-    {
-        return hasFallen;
-    }
-
-    public void moveForward()
-    {
-        distanceTravelled++;
-    }
-
-    public void setConfidence(double newConfidence)
-    {
-        horseConfidence = newConfidence;
-    }
-    
-    public void setSymbol(char newSymbol)
-    {
-        horseSymbol = newSymbol;
-    }
 }
