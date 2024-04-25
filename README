@@ -2,12 +2,27 @@ Horse simulator coursework for ECS414U (object-oriented programming).
 
 Started 19 Apr 2024.
 
-Part 1: text-based simulator
+Part 1: text-based simulator (in textual branch)
 To compile:
 `javac ./Horse.class`
 To run:
 `java Horse`
 
-Part 2: graphical-based simulator.
+Part 2: graphical-based simulator (in graphical branch -> main)
+To compile:
+`javac ./Simulator.java`
+To run:
+`java Simulator`
+
+Ensure all files are downloaded and in the same folder.
+- Simulator.java
+- Horse.java
+- Race.java
+- Track.java
+
+Upon running, user will be greeted with an option to design a track, to successfully initiate a race:
+- create at least 1 track
+- create at least 3 horses
+- click start race
 
 author: Akbar Ali <23009739>
